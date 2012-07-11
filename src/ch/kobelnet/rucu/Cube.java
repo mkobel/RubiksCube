@@ -22,6 +22,16 @@ public class Cube {
 	 */
 	Map<Wall,WallColor> wallColors = new HashMap<Wall,WallColor>();
 	
+	public Cube(RelativeCubePosition newPos)
+	{
+		position = newPos;
+		for ( Wall w : Wall.values() )
+		{
+			wallColors.put(w, WallColor.NONE);
+		}
+	}
+	
+	
 	/**
 	 * Verschiebe den Würfel von der aktuellen Position zur neuen Position
 	 * @param newPos neue Position

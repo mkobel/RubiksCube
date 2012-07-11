@@ -33,6 +33,43 @@ public class RubikCube {
 	{
 		//TODO: Würfel initialisieren
 		
+		cubes = new Cube[3][3][3];
+		
+		for ( int l = 0 ; l < 3 ; l++ )
+		{
+			for ( int r = 0 ; r < 3 ; r++ )
+			{
+				for ( int c = 0 ; c < 3 ; c++ )
+				{
+					RelativeCubePosition pos = new RelativeCubePosition(l,r,c);
+					Cube nc = new Cube(pos);
+					
+					// Boden
+					if ( l == 0 )
+						nc.wallColors.put(Wall.LEVEL_GROUND, WallColor.BLUE);
+					// Deckel
+					if ( l == 2 )
+						nc.wallColors.put(Wall.LEVEL_TOP, WallColor.RED);
+					// Vorne
+					if ( r == 0 )
+						nc.wallColors.put(Wall.ROW_FRONT, WallColor.GREEN);
+					// Hinten
+					if ( r == 2 )
+						nc.wallColors.put(Wall.ROW_BACK, WallColor.YELLOW);
+					// Links
+					if ( c == 0 )
+						nc.wallColors.put(Wall.COLUMN_LEFT, WallColor.ORANGE);
+					// Links
+					if ( c == 2)
+						nc.wallColors.put(Wall.COLUMN_RIGHT, WallColor.WHITE);
+					
+					cubes[l][r][c] = nc;
+				}
+			}
+
+		}
+		
+		
 	}
 	
 	
